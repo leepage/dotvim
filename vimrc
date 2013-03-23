@@ -4,7 +4,7 @@ set nocompatible
 " use pathogen to easily modify the runtime path to include all
 " plugins under the ~/.vim/bundle directory
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 call pathogen#helptags()
 
 set hidden        " hides buffers instead of closing preserving changes
