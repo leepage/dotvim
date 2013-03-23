@@ -101,3 +101,10 @@ nnoremap <silent> <Leader>b :BuffergatorToggle<CR>
 
 " :xa save all and exit
 " :qa discard all and exit
+
+
+"---------------------------------------------------------------------
+" Gundo Settings
+"---------------------------------------------------------------------
+nnoremap <F5> :GundoToggle<CR>
+
