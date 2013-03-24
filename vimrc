@@ -81,30 +81,40 @@ cmap w!! w !sudo tee % >/dev/null
 " change trigger key for XPT template from default <C-\>
 let g:xptemplate_key = '<Tab>'
 
-" open tree view if no files specified
-autocmd vimenter * if !argc() | NERDTree | endif
+"---------------------------------------------------------------------
+" NERDTree Settings
+"---------------------------------------------------------------------
 
 " toggle tree view
-map <silent> <leader>n :NERDTreeToggle<CR>
+noremap <F3> :NERDTreeToggle<CR>
 
 " allow vim to close if only tree view
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" NERDcommenter toggle
-" comment code with <leader>cc
-" uncomment code with <leader>c<space>
-
-" buffer view
+"---------------------------------------------------------------------
+" Buffergator Settings
+"---------------------------------------------------------------------
 let g:buffergator_viewport_split_policy = 'R'
 let g:buffergator_suppress_keymaps = 0
-nnoremap <silent> <Leader>b :BuffergatorToggle<CR>
-
-" :xa save all and exit
-" :qa discard all and exit
-
+nnoremap <F4> :BuffergatorToggle<CR>
 
 "---------------------------------------------------------------------
 " Gundo Settings
 "---------------------------------------------------------------------
 nnoremap <F5> :GundoToggle<CR>
+
+"---------------------------------------------------------------------
+" NERDCommenter Settings
+"---------------------------------------------------------------------
+" comment code with <leader>cc
+" uncomment code with <leader>c<space>
+
+"---------------------------------------------------------------------
+" Syntastic Settings
+"---------------------------------------------------------------------
+let g:syntastic_enable_signs = 1
+let g:syntastic_quiet_warnings = 1
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_auto_refresh_includes = 1
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
