@@ -7,12 +7,23 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#incubate()
 call pathogen#helptags()
 
-set t_Co=256      " set color range
+set term=xterm-256color " enable colors
+
 colorscheme xoria256  " select color scheme
+
+syntax on         " switch on syntax highlighting
+
+" enable mouse if available, copy/paste without line numbers using MMB
+if has('mouse')
+  set mouse=a
+endif
+
+set encoding=utf-8 " use UTF-8 characters
 
 filetype plugin indent on " enable file type and indent
 
-syntax on         " switch on syntax highlighting
+" use 4 spaces instead of tabs for python files
+autocmd filetype python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
 set hidden        " hides buffers instead of closing preserving changes
 set tabstop=2     " a tab is four spaces
@@ -37,17 +48,29 @@ set visualbell           " don't beep
 set noerrorbells         " don't beep
 set nobackup      " prevent vim writing backup files
 set noswapfile
-set showmode      " show the current mode
-"set showcmd       " show current command
-set wildmenu      " improve command line completion
+set showmode      " show editing mode
+set showcmd       " display incomplete commands
+set wildmenu      " show autocomplete menus
 set wrapscan      " search scan to wrap lines
-set mouse+=a      " enable mouse use in all modes, copy/paste witout line numbers between apps(MMB)
+set autoread      " read files which have been changed outside
 
 " system default for mappings is now the "," character
 let mapleader = ","
 
 " in insert mode, disable autoindent while pasting
 set pastetoggle=<F2>
+
+" select all lines
+map <silent> <C-a> ggVG<CR>
+
+" copy to system clipboard
+map <silent> <C-c> "+y<CR>
+
+" cut to system clipboard
+map <silent> <C-x> "+dd<CR>
+
+" paste from system clipboard
+map <silent> <C-p> "+p<CR>
 
 " window navigation
 map <C-left> <C-w>h
