@@ -41,6 +41,7 @@ set showmode      " show the current mode
 "set showcmd       " show current command
 set wildmenu      " improve command line completion
 set wrapscan      " search scan to wrap lines
+set mouse+=a      " enable mouse use in all modes, copy/paste witout line numbers between apps(MMB)
 
 " system default for mappings is now the "," character
 let mapleader = ","
@@ -108,7 +109,7 @@ nmap <leader>u :GundoToggle<CR>
 " NERDCommenter Settings
 "---------------------------------------------------------------------
 " comment code with <leader>cc
-" uncomment code with <leader>c<space>
+" toggle comment with <leader>c<space>
 
 "---------------------------------------------------------------------
 " Syntastic Settings
@@ -138,4 +139,10 @@ nmap <silent> ,ok :FSAbove<CR>
 nmap <silent> ,oK :FSSplitAbove<CR>
 nmap <silent> ,oj :FSBelow<CR>
 nmap <silent> ,oJ :FSSplitBelow<CR>
+
+"-----------------------------------------------------------------------------
+" CtrlP mappings
+"-----------------------------------------------------------------------------
+let g:ctrlp_map = '<leader>f'
+let g:ctrlp_cmd = 'CtrlP'
 
